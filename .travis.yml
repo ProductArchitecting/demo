@@ -1,15 +1,13 @@
+language: ruby
+rvm:
+  - 2.0.0
+
 env:
   - DB=postgresql
-# before_install:
-#   - sudo apt-get install libicu-dev -y
-#   - sudo apt-get install libqt4-dev libqtwebkit-dev -y
-#   - gem install charlock_holmes -v="0.6.8"
+
 branches:
   only:
     - 'master'
-rvm:
-  - 1.9.2
-  - 2.0.0
 
 services:
   - postgresql
