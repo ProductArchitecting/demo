@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cart_id: 
+  params: MyText
+  status: MyString
+  txn_id: MyString
+
+two:
+  cart_id: 
+  params: MyText
+  status: MyString
+  txn_id: MyString

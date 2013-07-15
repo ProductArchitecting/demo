@@ -1,4 +1,11 @@
 Demo::Application.routes.draw do
+  get "payment/index"
+  post "payment/create"
+  get "carts/mine"
+  resources :carts
+
+  resources :products
+
   get "welcome/index"
   resources :posts
 

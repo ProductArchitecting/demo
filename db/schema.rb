@@ -11,32 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712133556) do
+ActiveRecord::Schema.define(version: 20130713152857) do
 
-  create_table "genres", force: true do |t|
-    t.string   "name"
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "price",        default: 0.0
+    t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "genres_movies", force: true do |t|
-    t.integer "genre_id"
-    t.integer "movie_id"
+  create_table "carts_products", id: false, force: true do |t|
+    t.integer "product_id"
+    t.integer "cart_id"
   end
 
-  create_table "movies", force: true do |t|
-    t.string   "title"
-    t.string   "release_year"
-    t.date     "showtime_date"
-    t.time     "showtime_time"
+  create_table "payments", force: true do |t|
+    t.integer  "cart_id"
+    t.text     "params"
+    t.string   "status"
+    t.string   "txn_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "payments", ["cart_id"], name: "index_payments_on_cart_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "name"
     t.string   "title"
     t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",      default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
